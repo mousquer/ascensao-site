@@ -26,29 +26,29 @@ const CLASSES = [
   { id: "archer", group: "base", name: "Arqueiro", role: "À distância  •  Dano", frames: 12, glow: "#59c65a66",
     intro: "Mirava longe para não ver de perto. Rápido, dispara flechas na criatura mais próxima e domina o espaço.",
     skills: [
-      { key: "E", name: "Chuva de Flechas", icon: "elven_scout_a2", text: "Uma nuvem de flechas cai sobre uma área e fere quem estiver embaixo." },
+      { key: "E", name: "Vendaval de Flechas", icon: "elven_scout_a2", text: "Flechas e tornadinhos de folhas saem para todos os lados, até um limite que cresce na árvore de talentos." },
       { key: "R", name: "Tempestade Final", icon: "elven_scout_a0", text: "Ultimate que atinge todas as criaturas do mapa." },
       { key: "Passiva", name: "Disparo Duplo", icon: "elven_scout_a3", text: "Por alguns segundos, cada ataque solta duas flechas em fila." },
     ] },
   { id: "mage", group: "base", name: "Maga", role: "À distância  •  Controle", frames: 13, glow: "#5fb6ff66",
     intro: "Estudava o gelo nas torres de Mani. Projéteis que retardam, tempestade que congela e dash em teleporte.",
     skills: [
-      { key: "E", name: "Tempestade de Gelo", icon: "abyssal_void_s0", text: "Congela a área alvo: criaturas ficam paradas por um instante." },
-      { key: "R", name: "Era Glacial", icon: "abyssal_void_s7", text: "Ultimate de gelo que varre o mapa inteiro." },
-      { key: "Passiva", name: "Aura Gélida", icon: "abyssal_void_s3", text: "Uma aura retarda e fere as criaturas em volta por alguns segundos." },
+      { key: "E", name: "Tempestade de Gelo", icon: "frostmage_s0", text: "Congela a área alvo: criaturas ficam paradas por um instante." },
+      { key: "R", name: "Era Glacial", icon: "frostmage_s7", text: "Ultimate de gelo que varre o mapa inteiro." },
+      { key: "Passiva", name: "Aura Gélida", icon: "frostmage_s3", text: "Uma aura retarda e fere as criaturas em volta por alguns segundos." },
     ] },
-  { id: "healer", group: "base", name: "Curandeiro", role: "Suporte  •  Cura", frames: 13, glow: "#ffe27a66",
-    intro: "Serviu no templo de Ador. Cura a si mesmo de tempos em tempos e carrega a dúvida do que a cura serve.",
+  { id: "healer", group: "base", name: "Curandeira", role: "Suporte  •  Cura", frames: 13, glow: "#ffe27a66",
+    intro: "Serviu no templo de Ador. Cura a si mesma de tempos em tempos e carrega a dúvida do que a cura serve.",
     skills: [
-      { key: "E", name: "Nova Sagrada", icon: "holy_clergy_s0", text: "Explosão de luz em volta dele que fere criaturas e fortalece o grupo." },
-      { key: "R", name: "Julgamento Sagrado", icon: "holy_clergy_s7", text: "Ultimate que fere muito as criaturas e cura toda a vida dele." },
-      { key: "Passiva", name: "Cura Sagrada", icon: "holy_clergy_s3", text: "Recupera vida sozinho em intervalos curtos." },
+      { key: "E", name: "Nova Sagrada", icon: "holy_clergy_s0", text: "Explosão de luz em volta dela que fere criaturas e fortalece o grupo." },
+      { key: "R", name: "Julgamento Sagrado", icon: "holy_clergy_s7", text: "Ultimate que fere muito as criaturas e cura toda a vida dela." },
+      { key: "Passiva", name: "Cura Sagrada", icon: "holy_clergy_s3", text: "Recupera vida sozinha em intervalos curtos." },
     ] },
   { id: "necromancer", group: "base", name: "Necromante", role: "Invocação  •  Dano", frames: 9, glow: "#b565ff66",
     intro: "Banido por chorar um morto. Invoca esqueletos que lutam por ele e dispara raios sombrios fracos.",
     skills: [
       { key: "E", name: "Fúria dos Mortos", icon: "necromancer0_s0", text: "Os esqueletos ficam mais fortes por um tempo, com aura em volta deles." },
-      { key: "R", name: "Legião Eterna", icon: "necromancer0_s7", text: "Ultimate que enche o mapa de mortos para lutar ao lado dele." },
+      { key: "R", name: "Fumaça da Morte", icon: "necromancer0_s7", text: "Nuvens venenosas saem dele em todas as direções e envenenam o que tocam." },
       { key: "Passiva", name: "Invocação", icon: "necromancer0_s3", text: "Invoca esqueletos sozinho, até o limite do nível." },
     ] },
   { id: "assassin", group: "base", name: "Assassino", role: "Corpo a corpo  •  Crítico", frames: 8, glow: "#9fb4c866",
@@ -74,25 +74,25 @@ const CLASSES = [
       { key: "Passiva", name: "Ancestral Calls", icon: "axemaiden_a3", text: "Dois ecos dos antepassados surgem, correm até as criaturas e atacam sozinhos." },
     ] },
   { id: "archer_elite", group: "elite", name: "Arqueiro Elite", role: "Flecha Fantasma  •  À distância", frames: 13, glow: "#a8ff5a66",
-    intro: "Parou de mirar em corpos e passou a mirar em correntes. Suas flechas atravessam tudo, inclusive as mentiras dos Céus.",
+    intro: "Trocou o arco por uma besta pesada. Seus virotes atravessam tudo, inclusive as mentiras dos Céus.",
     skills: [
-      { key: "E", name: "Chuva de Flechas", icon: "elven_scout_a2", text: "Mais forte que a do Arqueiro: uma nuvem de flechas cai sobre uma área grande." },
-      { key: "R", name: "Tempestade Final", icon: "elven_scout_a0", text: "Ultimate que atinge todas as criaturas do mapa." },
-      { key: "Passiva", name: "Disparo Duplo", icon: "elven_scout_a3", text: "Flechas em fila na mesma reta, e a árvore de talentos libera uma terceira." },
+      { key: "E", name: "Vendaval de Virotes", icon: "elven_scout_a2", text: "Mais forte que a do Arqueiro: 24 virotes e 6 tornadinhos em volta, em um raio maior." },
+      { key: "R", name: "Chuva de Virotes", icon: "elven_scout_a0", text: "Ultimate que atinge todas as criaturas do mapa." },
+      { key: "Passiva", name: "Disparo Triplo", icon: "elven_scout_a3", text: "A besta solta 3 virotes em fila, mais fortes e que perfuram." },
     ] },
-  { id: "healer_elite", group: "elite", name: "Curandeiro Elite", role: "Asa Sagrada  •  Suporte", frames: 12, glow: "#fff2a066",
-    intro: "Curar deixou de ser dever e virou escolha. Ele cura quem quer viver e abre as asas na hora de ferir.",
+  { id: "healer_elite", group: "elite", name: "Curandeira Elite", role: "Asa Sagrada  •  Suporte", frames: 12, glow: "#fff2a066",
+    intro: "Curar deixou de ser dever e virou escolha. Ela cura quem quer viver e abre as asas na hora de ferir.",
     skills: [
       { key: "E", name: "Nova Sagrada", icon: "undead_s0", text: "Explosão de luz com as asas abertas: fere as criaturas e fortalece a cura." },
       { key: "R", name: "Julgamento Sagrado", icon: "undead_s7", text: "Ultimate que fere muito as criaturas e cura toda a vida dele." },
-      { key: "Passiva", name: "Cura Sagrada", icon: "undead_s3", text: "Recupera vida sozinho, mais rápido que o Curandeiro." },
+      { key: "Passiva", name: "Cura Sagrada", icon: "undead_s3", text: "Recupera vida sozinho, mais rápido que a Curandeira." },
     ] },
   { id: "necromancer_elite", group: "elite", name: "Necromante Elite", role: "Senhor dos Mortos  •  Invocação", frames: 8, glow: "#ff5ad266",
     intro: "Ouviu todos os banidos de uma vez. Não comanda um exército: representa uma multidão que volta para dizer seus nomes.",
     skills: [
-      { key: "E", name: "Fúria dos Mortos", icon: "necromancer1_s0", text: "Reforça todos os esqueletos, com um bônus maior que o do Necromante." },
-      { key: "R", name: "Legião Eterna", icon: "necromancer1_s7", text: "Ultimate que enche o mapa de mortos para lutar ao lado dele." },
-      { key: "Passiva", name: "Invocação", icon: "necromancer1_s3", text: "Mantém um esqueleto a mais em campo e eles batem mais forte." },
+      { key: "E", name: "Pacto das Bestas", icon: "necromancer1_s0", text: "Enfurece as bestas infernais e chama duas de reforço na hora." },
+      { key: "R", name: "Legião Infernal", icon: "necromancer1_s7", text: "Chama uma legião de bestas infernais para lutar ao lado dele." },
+      { key: "Passiva", name: "Invocação", icon: "necromancer1_s3", text: "Invoca bestas infernais em vez de esqueletos, uma a mais em campo." },
     ] },
   { id: "mage_elite", group: "elite", name: "Mago Elite", role: "Mago Sombrio  •  Fogo e trevas", frames: 12, glow: "#a24dff66",
     intro: "Atravessou o gelo e achou a escuridão onde os esquecidos se guardam. Bola de fogo no ataque e magias roxas.",
@@ -104,9 +104,9 @@ const CLASSES = [
   { id: "assassin_elite", group: "elite", name: "Assassino Elite", role: "Mestre das Armadilhas  •  Controle", frames: 9, glow: "#cfd8ff66",
     intro: "Paciência é a arma mais cruel. Prepara o terreno e deixa que o inimigo caia sozinho na própria escolha.",
     skills: [
-      { key: "E", name: "Adagas Arremessadas", icon: "heroes_s0", text: "Dois toques: lança adagas e salta até o alvo marcado." },
+      { key: "E", name: "Marca das Adagas", icon: "heroes_s0", text: "Marca até 10 criaturas na tela. Apertando de novo, salta de marca em marca, golpeando cada uma com crítico." },
       { key: "R", name: "Campo de Armadilhas", icon: "heroes_s7", text: "Espalha armadilhas que prendem as criaturas no lugar." },
-      { key: "Passiva", name: "Crítico Duplo", icon: "heroes_s3", text: "O crítico do assassino causa o dobro do bônus." },
+      { key: "Passiva", name: "Crítico Duplo", icon: "heroes_s3", text: "Crítico garantido nas costas, com o dobro do bônus." },
     ] },
 ];
 
@@ -192,15 +192,39 @@ function selectClass(id) {
   bigSprite = makeSprite(stage, c.id, c.frames);
   const list = $("#skillList");
   list.innerHTML = "";
-  for (const s of c.skills) {
+  const ordered = [...c.skills].sort((a, b) => (a.key === "Passiva" ? -1 : 0) - (b.key === "Passiva" ? -1 : 0));
+  for (const s of ordered) {
     const row = document.createElement("div");
     row.className = "skill";
     row.innerHTML = `<div class="skill-icon"><img alt="" src="img/skills/${s.icon}.png"></div>
-      <div><div class="skill-key">${s.key}</div><h4>${s.name}</h4><p>${s.text}</p></div>`;
+      <div><div class="skill-key">${s.key}</div><h4>${s.name}</h4><p>${s.text}</p>
+      <button class="clip-btn" type="button">▶ Ver em ação</button></div>`;
+    row.querySelector(".clip-btn").addEventListener("click", () => openClip(c, s));
     list.appendChild(row);
   }
   renderSelector();
 }
+
+const clipModal = $("#clipModal");
+const clipVideo = $("#clipVideo");
+
+function openClip(c, s) {
+  $("#clipTitle").textContent = `${c.name}  •  ${s.name}`;
+  clipVideo.src = `video/classes/${c.id}_${s.key}.webm`;
+  clipVideo.play();
+  clipModal.hidden = false;
+}
+
+function closeClip() {
+  clipVideo.pause();
+  clipVideo.removeAttribute("src");
+  clipVideo.load();
+  clipModal.hidden = true;
+}
+
+$("#clipClose").addEventListener("click", closeClip);
+clipModal.addEventListener("click", (e) => { if (e.target === clipModal) closeClip(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !clipModal.hidden) closeClip(); });
 
 document.querySelectorAll("#classTabs .tab").forEach((tab) => {
   tab.addEventListener("click", () => {

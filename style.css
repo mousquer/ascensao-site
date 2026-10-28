@@ -189,3 +189,21 @@ a { color: inherit; text-decoration: none; }
   .skill { grid-template-columns: 64px 1fr; }
   .skill-icon { width: 64px; height: 64px; }
 }
+
+.clip-btn {
+  margin-top: 10px; padding: 7px 14px; border: 1px solid var(--gold-dark); border-radius: 4px;
+  background: transparent; color: var(--gold); font: inherit; font-size: 13px; cursor: pointer;
+}
+.clip-btn:hover { background: rgba(212, 175, 90, .14); }
+.clip-modal {
+  position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
+  padding: 16px; background: rgba(4, 2, 10, .88);
+}
+.clip-modal[hidden] { display: none; }
+.clip-box { position: relative; width: min(960px, 100%); border: 2px solid var(--gold-dark); border-radius: 8px; background: #05030a; }
+.clip-box video { width: 100%; display: block; border-radius: 6px 6px 0 0; }
+.clip-title { margin: 0; padding: 12px 16px; font-family: "Cinzel", serif; color: var(--gold); }
+.clip-close {
+  position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border: 1px solid var(--gold-dark);
+  border-radius: 50%; background: rgba(5, 3, 10, .85); color: var(--gold); font-size: 22px; line-height: 1; cursor: pointer;
+}
