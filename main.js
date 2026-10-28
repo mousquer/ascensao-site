@@ -207,13 +207,38 @@ function selectClass(id) {
 
 const clipModal = $("#clipModal");
 const clipVideo = $("#clipVideo");
+const clipMissing = $("#clipMissing");
+let clipMode = "2d";
+let clipCurrent = null;
+
+function loadClip() {
+  const folder = clipMode === "3d" ? "classes3d" : "classes";
+  clipMissing.hidden = true;
+  clipVideo.hidden = false;
+  clipVideo.src = `video/${folder}/${clipCurrent.c.id}_${clipCurrent.s.key}.webm`;
+  clipVideo.play().catch(() => {});
+  document.querySelectorAll("#clipModes button").forEach((b) => b.classList.toggle("active", b.dataset.mode === clipMode));
+}
 
 function openClip(c, s) {
+  clipCurrent = { c, s };
   $("#clipTitle").textContent = `${c.name}  •  ${s.name}`;
-  clipVideo.src = `video/classes/${c.id}_${s.key}.webm`;
-  clipVideo.play();
+  loadClip();
   clipModal.hidden = false;
 }
+
+clipVideo.addEventListener("error", () => {
+  if (!clipVideo.getAttribute("src")) return;
+  clipVideo.hidden = true;
+  clipMissing.hidden = false;
+});
+
+document.querySelectorAll("#clipModes button").forEach((b) => {
+  b.addEventListener("click", () => {
+    clipMode = b.dataset.mode;
+    loadClip();
+  });
+});
 
 function closeClip() {
   clipVideo.pause();

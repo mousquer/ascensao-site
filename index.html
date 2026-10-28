@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ascensão da Sombra</title>
-<meta name="description" content="Ascensão da Sombra: Action Survivor com narrativa pesada, 13 classes e um Abismo cheio de segredos. Apoie o desenvolvimento.">
+<meta name="description" content="Ascensão da Sombra: bullet heaven indie com 13 classes, narrativa pesada e dois modos em um só jogo. Troque entre 2D e 3D com um botão, sem perder a progressão.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,6 +16,7 @@
   <a class="brand" href="#inicio">ASCENSÃO<span> DA SOMBRA</span></a>
   <nav>
     <a href="#jogo">O Jogo</a>
+    <a href="#modos">2D e 3D</a>
     <a href="#classes">Classes</a>
     <a href="#historia">História</a>
     <a href="#apoie">Apoie</a>
@@ -26,7 +27,7 @@
 <section class="hero" id="inicio">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <p class="eyebrow">Action Survivor  •  2D e 3D</p>
+    <p class="eyebrow">Bullet Heaven indie  •  2D e 3D no mesmo jogo</p>
     <h1>ASCENSÃO<br><span>DA SOMBRA</span></h1>
     <p class="tagline">Os Céus pediram que você limpasse o Abismo. A Sombra pede que você <em>ouça</em> antes do golpe.</p>
     <div class="hero-actions">
@@ -45,6 +46,43 @@
         <div class="play">▶</div>
         <p>O vídeo do jogo chega em breve.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="modos">
+  <div class="wrap">
+    <h2 class="title">Dois modos, um só jogo</h2>
+    <p class="lead">Um bullet heaven indie que você joga em 2D ou em 3D. Troque de modo com um botão, na hora, sem instalar nada.</p>
+    <div class="modes">
+      <article class="mode">
+        <div class="mode-badge">2D</div>
+        <h3>Visão de cima</h3>
+        <p>A horda vem de todos os lados e você domina o mapa com skills, passivas e cartas. Também no celular.</p>
+      </article>
+      <div class="mode-switch" aria-hidden="true">
+        <span class="switch-track"><span class="switch-knob"></span></span>
+        <span class="switch-label">1 botão</span>
+      </div>
+      <article class="mode">
+        <div class="mode-badge">3D</div>
+        <h3>Terceira pessoa</h3>
+        <p>O mesmo Abismo com câmera atrás do personagem, no computador. As mesmas classes, os mesmos mapas.</p>
+      </article>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3>Progressão única</h3>
+        <p>Nível, talentos, equipamentos, cartas e missões valem nos dois modos. Tudo o que você conquista continua com você.</p>
+      </article>
+      <article class="card">
+        <h3>Sem baixar outro jogo</h3>
+        <p>É um jogo só. Ao trocar de modo você continua do mesmo ponto, sem novo download e sem recomeçar.</p>
+      </article>
+      <article class="card">
+        <h3>Todas as classes nos dois</h3>
+        <p>As 13 classes têm vídeo em 2D e em 3D na seção de Classes: use o botão do vídeo para comparar.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -68,7 +106,7 @@
       </article>
       <article class="card">
         <h3>Modo 3D (DLC)</h3>
-        <p>O mesmo jogo em terceira pessoa, com câmera atrás do personagem. Disponível no computador.</p>
+        <p>O mesmo jogo em terceira pessoa, no computador. Liberado dentro do próprio jogo, com toda a progressão mantida.</p>
       </article>
     </div>
   </div>
@@ -163,7 +201,12 @@
 <div class="clip-modal" id="clipModal" hidden>
   <div class="clip-box">
     <button class="clip-close" id="clipClose" type="button" aria-label="Fechar">×</button>
+    <div class="clip-modes" id="clipModes">
+      <button type="button" class="active" data-mode="2d">2D</button>
+      <button type="button" data-mode="3d">3D</button>
+    </div>
     <video id="clipVideo" muted playsinline loop preload="auto"></video>
+    <p class="clip-missing" id="clipMissing" hidden>O vídeo em 3D desta skill chega em breve.</p>
     <p class="clip-title" id="clipTitle"></p>
   </div>
 </div>
