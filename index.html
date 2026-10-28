@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ascensão da Sombra</title>
+<meta name="description" content="Ascensão da Sombra: Action Survivor com narrativa pesada, 13 classes e um Abismo cheio de segredos. Apoie o desenvolvimento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <a class="brand" href="#inicio">ASCENSÃO<span> DA SOMBRA</span></a>
+  <nav>
+    <a href="#jogo">O Jogo</a>
+    <a href="#classes">Classes</a>
+    <a href="#historia">História</a>
+    <a href="#apoie">Apoie</a>
+  </nav>
+  <a class="btn btn-small" href="#apoie">Apoiar o projeto</a>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Action Survivor  •  2D e 3D</p>
+    <h1>ASCENSÃO<br><span>DA SOMBRA</span></h1>
+    <p class="tagline">Os Céus pediram que você limpasse o Abismo. A Sombra pede que você <em>ouça</em> antes do golpe.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#apoie">Apoie o desenvolvimento</a>
+      <a class="btn btn-ghost" href="#trailer">Ver o vídeo</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Role para descobrir</div>
+</section>
+
+<section class="section" id="trailer">
+  <div class="wrap narrow">
+    <h2 class="title">O Abismo te espera</h2>
+    <div class="video-frame" id="videoFrame">
+      <div class="video-empty">
+        <div class="play">▶</div>
+        <p>O vídeo do jogo chega em breve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="jogo">
+  <div class="wrap">
+    <h2 class="title">Um jogo de ação, um segredo por onda</h2>
+    <p class="lead">Ondas de criaturas, chefes que já foram heróis e uma história em que os vilões moram nos Céus. Cada descida é diferente, e cada criatura derrotada deixa uma pergunta.</p>
+    <div class="cards">
+      <article class="card">
+        <h3>Sobreviva a 30 ondas</h3>
+        <p>Cartas de nível, talentos permanentes, equipamentos e chefes nas ondas 10, 20 e 30. Quanto mais fundo, mais forte a horda.</p>
+      </article>
+      <article class="card">
+        <h3>13 classes</h3>
+        <p>6 classes base e 7 subclasses Elite, com habilidades, passivas e cartas próprias. Troque de estilo na Cidade e teste nos bonecos de treino.</p>
+      </article>
+      <article class="card">
+        <h3>Missões de resgate</h3>
+        <p>O Ferreiro, o Mercador e o Alquimista estão presos nos mapas. Proteja-os, resgate-os e eles voltam para a Cidade com novos serviços.</p>
+      </article>
+      <article class="card">
+        <h3>Modo 3D (DLC)</h3>
+        <p>O mesmo jogo em terceira pessoa, com câmera atrás do personagem. Disponível no computador.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section classes" id="classes">
+  <div class="wrap">
+    <h2 class="title">Classes</h2>
+    <p class="lead">Escolha quem desce ao Abismo. As Elite são a evolução de cada classe depois de enxergar a verdade.</p>
+
+    <div class="tabs" id="classTabs">
+      <button class="tab active" data-group="base">Classes base</button>
+      <button class="tab" data-group="elite">Elite</button>
+    </div>
+
+    <div class="showcase">
+      <div class="selector" id="classSelector" aria-label="Escolha a classe"></div>
+
+      <div class="hero-card">
+        <div class="char-stage">
+          <div class="char-glow" id="charGlow"></div>
+          <div class="sprite big" id="charSprite"></div>
+          <div class="char-floor"></div>
+        </div>
+        <div class="char-info">
+          <p class="role" id="charRole"></p>
+          <h3 id="charName"></h3>
+          <p id="charIntro"></p>
+        </div>
+      </div>
+
+      <div class="skills" id="skillList"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="historia">
+  <div class="wrap">
+    <h2 class="title">A história dos três deuses</h2>
+    <p class="lead">Pul, Mani e Ador mandaram um herói limpar o Abismo. A Sombra sussurra o que eles não contam.</p>
+    <div class="story" id="story">
+      <div class="story-art" id="storyArt"></div>
+      <div class="story-text">
+        <h3 id="storyName"></h3>
+        <p class="story-sub" id="storySub"></p>
+        <p id="storyBody"></p>
+        <div class="story-nav">
+          <button class="round" id="storyPrev" aria-label="Anterior">‹</button>
+          <span id="storyCount"></span>
+          <button class="round" id="storyNext" aria-label="Próximo">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section support" id="apoie">
+  <div class="wrap">
+    <h2 class="title">Ajude o Abismo a ganhar vida</h2>
+    <p class="lead">O jogo é feito por uma pessoa só, mas arte, música, vozes e ferramentas custam. Sua ajuda paga os assets e deixa o jogo mais bonito, mais longo e mais perto do lançamento.</p>
+
+    <div class="goal" id="goalBox" hidden>
+      <div class="goal-top"><span id="goalRaised"></span><span id="goalTarget"></span></div>
+      <div class="bar"><div class="bar-fill" id="goalFill"></div></div>
+      <p class="goal-note" id="goalNote"></p>
+    </div>
+
+    <div class="tiers" id="tiers"></div>
+
+    <div class="usage">
+      <h3>Para onde vai o dinheiro</h3>
+      <ul>
+        <li><b>Arte:</b> personagens, criaturas, chefes e cenários novos para os próximos mapas.</li>
+        <li><b>Som:</b> trilha sonora, efeitos e vozes dos deuses e da Sombra.</li>
+        <li><b>Ferramentas:</b> licenças e hospedagem do site e do jogo.</li>
+        <li><b>Lançamento:</b> taxas das lojas e testes em vários aparelhos.</li>
+      </ul>
+    </div>
+    <p class="fine">Doações são voluntárias e ajudam o desenvolvimento. Elas não garantem prazo de entrega nem funcionalidades específicas.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-brand">ASCENSÃO<span> DA SOMBRA</span></div>
+    <div class="socials" id="socials"></div>
+    <p>Em desenvolvimento. Todos os direitos reservados ao desenvolvedor.</p>
+    <p class="credits">Arte de personagens: elie automata.</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
