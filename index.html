@@ -15,9 +15,9 @@
 <header class="topbar" id="topbar">
   <a class="brand" href="#inicio">ASCENSÃO<span> DA SOMBRA</span></a>
   <nav>
+    <a href="#classes">Classes</a>
     <a href="#jogo">O Jogo</a>
     <a href="#modos">2D e 3D</a>
-    <a href="#classes">Classes</a>
     <a href="#historia">História</a>
     <a href="#apoie">Apoie</a>
   </nav>
@@ -26,7 +26,9 @@
 
 <section class="hero" id="inicio">
   <div class="hero-bg"></div>
+  <div class="hero-grid">
   <div class="hero-content">
+    <div class="studio-by"><span>Um jogo do</span><img src="img/studio-logo.png" alt="Ascensão Game Studio"></div>
     <p class="eyebrow">Bullet Heaven indie  •  2D e 3D no mesmo jogo</p>
     <h1>ASCENSÃO<br><span>DA SOMBRA</span></h1>
     <p class="tagline">Os Céus pediram que você limpasse o Abismo. A Sombra pede que você <em>ouça</em> antes do golpe.</p>
@@ -35,7 +37,43 @@
       <a class="btn btn-ghost" href="#trailer">Ver o vídeo</a>
     </div>
   </div>
+  <div class="hero-emblem">
+    <div class="emblem-glow"></div>
+    <img src="img/sombra.png" alt="A Sombra">
+  </div>
+  </div>
   <div class="hero-scroll">Role para descobrir</div>
+</section>
+
+<section class="section classes" id="classes">
+  <div class="wrap">
+    <h2 class="title">Escolha quem desce ao Abismo</h2>
+    <p class="lead">13 classes, cada uma com passiva, skill e ultimate próprias. Veja cada uma em ação, dentro do mapa, no meio da horda. As Elite são a evolução de cada classe depois de enxergar a verdade.</p>
+
+    <div class="tabs" id="classTabs">
+      <button class="tab active" data-group="base">Classes base</button>
+      <button class="tab" data-group="elite">Elite</button>
+    </div>
+
+    <div class="showcase">
+      <div class="selector" id="classSelector" aria-label="Escolha a classe"></div>
+
+      <div class="hero-card">
+        <div class="char-stage">
+          <div class="char-glow" id="charGlow"></div>
+          <div class="sprite big" id="charSprite"></div>
+          <div class="char-floor"></div>
+        </div>
+        <div class="char-info">
+          <p class="role" id="charRole"></p>
+          <h3 id="charName"></h3>
+          <p id="charIntro"></p>
+        </div>
+      </div>
+
+      <div class="skills" id="skillList"></div>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="trailer">
@@ -112,36 +150,6 @@
   </div>
 </section>
 
-<section class="section classes" id="classes">
-  <div class="wrap">
-    <h2 class="title">Classes</h2>
-    <p class="lead">Escolha quem desce ao Abismo. As Elite são a evolução de cada classe depois de enxergar a verdade.</p>
-
-    <div class="tabs" id="classTabs">
-      <button class="tab active" data-group="base">Classes base</button>
-      <button class="tab" data-group="elite">Elite</button>
-    </div>
-
-    <div class="showcase">
-      <div class="selector" id="classSelector" aria-label="Escolha a classe"></div>
-
-      <div class="hero-card">
-        <div class="char-stage">
-          <div class="char-glow" id="charGlow"></div>
-          <div class="sprite big" id="charSprite"></div>
-          <div class="char-floor"></div>
-        </div>
-        <div class="char-info">
-          <p class="role" id="charRole"></p>
-          <h3 id="charName"></h3>
-          <p id="charIntro"></p>
-        </div>
-      </div>
-
-      <div class="skills" id="skillList"></div>
-    </div>
-  </div>
-</section>
 
 <section class="section dark" id="historia">
   <div class="wrap">

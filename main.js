@@ -198,7 +198,7 @@ function selectClass(id) {
     row.className = "skill";
     row.innerHTML = `<div class="skill-icon"><img alt="" src="img/skills/${s.icon}.png"></div>
       <div><div class="skill-key">${s.key}</div><h4>${s.name}</h4><p>${s.text}</p>
-      <button class="clip-btn" type="button">▶ Ver em ação</button></div>`;
+      <button class="clip-btn" type="button">▶ Ver em ação no mapa</button></div>`;
     row.querySelector(".clip-btn").addEventListener("click", () => openClip(c, s));
     list.appendChild(row);
   }
