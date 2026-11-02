@@ -1,5 +1,6 @@
 const CONFIG = {
   supportUrl: "#apoie",
+  freeUrl: "",
   goal: 0,
   raised: 0,
   currency: "R$",
@@ -7,14 +8,15 @@ const CONFIG = {
   video: "",
   videoPoster: "",
   tiers: [
-    { group: "play", name: "Jogo", price: 19.9, perks: ["Jogo base completo em 2D", "15 mapas, os 3 deuses e as classes base", "Atualizações do jogo base"], url: "" },
-    { group: "play", name: "Completo", price: 24.9, featured: true, perks: ["Tudo do pacote Jogo", "Modo 3D (DLC)", "Assassino e Assassino Elite (Pacote do Kael)", "Mais barato que comprar separado"], url: "" },
-    { group: "play", name: "Apoiador", price: 49.9, perks: ["Tudo do pacote Completo", "Seu nome no mural de créditos", "Voto nas enquetes dos próximos mapas", "Acesso antecipado às builds"], url: "" },
+    { group: "play", name: "Jogo", price: 19.9, perks: ["Jogo base completo em 2D e 3D", "Troca de modo com um botão, sem pagar a mais", "15 mapas, os 3 deuses e as classes base", "Atualizações do jogo base"], url: "" },
+    { group: "play", name: "Jogo + DLC Kael", price: 21.9, featured: true, perks: ["Tudo do pacote Jogo, em 2D e 3D", "O Assassino, a classe do Kael", "Mais barato que comprar separado (R$ 26,80)"], url: "" },
+    { group: "play", name: "Apoiador", price: 49.9, perks: ["Tudo do pacote Jogo + DLC Kael", "Seu nome no mural de créditos", "Voto nas enquetes dos próximos mapas", "Acesso antecipado às builds"], url: "" },
     { group: "create", name: "NPC", price: 1000, slots: 5, taken: 0, perks: ["Tudo do pacote Apoiador", "Um NPC seu: nome, aparência, papel e falas próprias", "Pode ser uma homenagem a alguém que você gosta", "Você escolhe o mundo onde ele vive", "Disponível só até o lançamento do jogo"], url: "" },
     { group: "create", name: "Mapa", price: 2000, slots: 5, taken: 0, featured: true, perks: ["Tudo do pacote NPC", "Você escolhe 1 mapa: nome, tema e clima", "Você escolhe as 5 criaturas desse mapa", "Seu nome no mapa e as criaturas no Bestiário do jogo"], url: "" },
-    { group: "create", name: "DLC", price: 5000, slots: 1, taken: 0, perks: ["Tudo do pacote Mapa", "Uma DLC inteira com a sua classe e a versão Elite dela", "História nova, talentos e cartas próprios", "Seu nome no jogo: em um mapa ou como escolha do chefe final"], url: "" },
+    { group: "create", name: "DLC", price: 5000, slots: 1, taken: 0, perks: ["Tudo do pacote Mapa", "Uma DLC inteira com a sua classe e a versão Primal dela", "História nova, talentos e cartas próprios", "Seu nome no jogo: em um mapa ou como escolha do chefe final"], url: "" },
   ],
   socials: [
+    { name: "Discord", url: "https://discord.gg/NDsp53b8qv" },
   ],
 };
 
@@ -62,49 +64,49 @@ const CLASSES = [
       { key: "Passiva", name: "Golpe nas Costas", icon: "flesh_abomination_s3", text: "Crítico garantido em quem está de costas ou preso." },
     ] },
 
-  { id: "warrior_elite", group: "elite", name: "Guerreiro Elite", role: "Cavaleiro do Martelo  •  Área", frames: 9, glow: "#6fd0ff66",
+  { id: "warrior_elite", group: "elite", name: "Guerreiro Primal", role: "Cavaleiro do Martelo  •  Área", frames: 9, glow: "#6fd0ff66",
     intro: "Quem quebra um muro não precisa de corte, precisa de peso. Habilidades em área, batendo no chão com poeira e gelo.",
     skills: [
       { key: "E", name: "Martelo Glacial", icon: "glacierbreaker_a0", text: "Martelada no chão: dano em área, empurrão e poeira subindo." },
       { key: "R", name: "Terremoto Glacial", icon: "glacierbreaker_a3", text: "Três marteladas seguidas, cada uma maior que a anterior, que atordoam." },
       { key: "Passiva", name: "Giro de Lâminas", icon: "glacierbreaker_a1", text: "Quatro cortes em cruz em volta dele, de tempos em tempos." },
     ] },
-  { id: "axe_elite", group: "elite", name: "Guerreira Elite", role: "Axemaiden  •  Sangramento", frames: 12, glow: "#ff3a4e66",
+  { id: "axe_elite", group: "elite", name: "Guerreira Primal", role: "Axemaiden  •  Sangramento", frames: 12, glow: "#ff3a4e66",
     intro: "Filha de uma linhagem banida. O machado é herança e o sangue que ela tira é o que os deuses tiraram da família dela.",
     skills: [
       { key: "E", name: "Julgamento Carmesim", icon: "axemaiden_a0", text: "Círculo de sangue que fere em área e faz todos sangrarem." },
       { key: "R", name: "Machado Giratório", icon: "axemaiden_a2", text: "Gira como um pião por 3 s: dano em 360° e atordoa quem toca." },
       { key: "Passiva", name: "Ancestral Calls", icon: "axemaiden_a3", text: "Dois ecos dos antepassados surgem, correm até as criaturas e atacam sozinhos." },
     ] },
-  { id: "archer_elite", group: "elite", name: "Arqueiro Elite", role: "Flecha Fantasma  •  À distância", frames: 13, glow: "#a8ff5a66",
+  { id: "archer_elite", group: "elite", name: "Arqueiro Primal", role: "Flecha Fantasma  •  À distância", frames: 13, glow: "#a8ff5a66",
     intro: "Trocou o arco por uma besta pesada. Seus virotes atravessam tudo, inclusive as mentiras dos Céus.",
     skills: [
       { key: "E", name: "Vendaval de Virotes", icon: "elven_scout_a2", text: "Mais forte que a do Arqueiro: 24 virotes e 6 tornadinhos em volta, em um raio maior." },
       { key: "R", name: "Chuva de Virotes", icon: "elven_scout_a0", text: "Ultimate que atinge todas as criaturas do mapa." },
       { key: "Passiva", name: "Disparo Triplo", icon: "elven_scout_a3", text: "A besta solta 3 virotes em fila, mais fortes e que perfuram." },
     ] },
-  { id: "healer_elite", group: "elite", name: "Curandeira Elite", role: "Asa Sagrada  •  Suporte", frames: 12, glow: "#fff2a066",
+  { id: "healer_elite", group: "elite", name: "Curandeira Primal", role: "Asa Sagrada  •  Suporte", frames: 12, glow: "#fff2a066",
     intro: "Curar deixou de ser dever e virou escolha. Ela cura quem quer viver e abre as asas na hora de ferir.",
     skills: [
       { key: "E", name: "Nova Sagrada", icon: "undead_s0", text: "Explosão de luz com as asas abertas: fere as criaturas e fortalece a cura." },
       { key: "R", name: "Julgamento Sagrado", icon: "undead_s7", text: "Ultimate que fere muito as criaturas e cura toda a vida dele." },
       { key: "Passiva", name: "Cura Sagrada", icon: "undead_s3", text: "Recupera vida sozinho, mais rápido que a Curandeira." },
     ] },
-  { id: "necromancer_elite", group: "elite", name: "Necromante Elite", role: "Senhor dos Mortos  •  Invocação", frames: 8, glow: "#ff5ad266",
+  { id: "necromancer_elite", group: "elite", name: "Necromante Primal", role: "Senhor dos Mortos  •  Invocação", frames: 8, glow: "#ff5ad266",
     intro: "Ouviu todos os banidos de uma vez. Não comanda um exército: representa uma multidão que volta para dizer seus nomes.",
     skills: [
       { key: "E", name: "Pacto das Bestas", icon: "necromancer1_s0", text: "Enfurece as bestas infernais e chama duas de reforço na hora." },
       { key: "R", name: "Legião Infernal", icon: "necromancer1_s7", text: "Chama uma legião de bestas infernais para lutar ao lado dele." },
       { key: "Passiva", name: "Invocação", icon: "necromancer1_s3", text: "Invoca bestas infernais em vez de esqueletos, uma a mais em campo." },
     ] },
-  { id: "mage_elite", group: "elite", name: "Mago Elite", role: "Mago Sombrio  •  Fogo e trevas", frames: 12, glow: "#a24dff66",
+  { id: "mage_elite", group: "elite", name: "Mago Primal", role: "Mago Sombrio  •  Fogo e trevas", frames: 12, glow: "#a24dff66",
     intro: "Atravessou o gelo e achou a escuridão onde os esquecidos se guardam. Bola de fogo no ataque e magias roxas.",
     skills: [
       { key: "E", name: "Meteoro Sombrio", icon: "spirit_wraith_s0", text: "Um meteoro roxo cai sobre o alvo e explode em área." },
       { key: "R", name: "Apocalipse Sombrio", icon: "spirit_wraith_s7", text: "Ultimate de trevas que atinge todas as criaturas do mapa." },
       { key: "Passiva", name: "Aura Sombria", icon: "spirit_wraith_s3", text: "Aura que retarda as criaturas e as deixa vulneráveis a mais dano." },
     ] },
-  { id: "assassin_elite", group: "elite", name: "Assassino Elite", role: "Mestre das Armadilhas  •  Controle", frames: 9, glow: "#cfd8ff66",
+  { id: "assassin_elite", group: "elite", name: "Assassino Primal", role: "Mestre das Armadilhas  •  Controle", frames: 9, glow: "#cfd8ff66",
     intro: "Paciência é a arma mais cruel. Prepara o terreno e deixa que o inimigo caia sozinho na própria escolha.",
     skills: [
       { key: "E", name: "Marca das Adagas", icon: "heroes_s0", text: "Marca até 10 criaturas na tela. Apertando de novo, salta de marca em marca, golpeando cada uma com crítico." },
@@ -349,8 +351,21 @@ for (const tier of CONFIG.tiers) {
   card.innerHTML = `<h3>${tier.name}</h3><div class="price">${money(tier.price)}</div>
     ${tier.slots ? `<div class="slots">${full ? "Esgotado" : `${left} de ${tier.slots} ${tier.slots === 1 ? "vaga" : "vagas"}`}</div>` : ""}
     <ul>${tier.perks.map((p) => `<li>${p}</li>`).join("")}</ul>
-    ${full ? "" : `<a class="btn" href="${tier.url || CONFIG.supportUrl}" target="_blank" rel="noopener">${tier.slots ? "Quero este pacote" : "Apoiar"}</a>`}`;
+    ${full ? "" : `<a class="btn" href="${tier.url || CONFIG.supportUrl}"${tier.url ? ' target="_blank" rel="noopener"' : ""}>${tier.slots ? "Quero este pacote" : "Apoiar"}</a>`}`;
   box.appendChild(card);
 }
+const freeInput = $("#freeAmount");
+const freeLink = $("#freeLink");
+const updateFree = () => {
+  const value = Math.max(Number(freeInput.value) || 0, 1);
+  freeLink.href = CONFIG.freeUrl ? `${CONFIG.freeUrl}${value}` : CONFIG.supportUrl;
+  if (CONFIG.freeUrl) { freeLink.target = "_blank"; freeLink.rel = "noopener"; }
+};
+freeInput.addEventListener("input", updateFree);
+document.querySelectorAll("#freePresets button").forEach((b) => b.addEventListener("click", () => {
+  freeInput.value = b.dataset.value;
+  updateFree();
+}));
+updateFree();
 $("#socials").innerHTML = CONFIG.socials
   .map((s) => `<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join("");
