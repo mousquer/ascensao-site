@@ -7,9 +7,12 @@ const CONFIG = {
   video: "",
   videoPoster: "",
   tiers: [
-    { name: "Apoiador", price: 10, perks: ["Seu nome na página de agradecimentos", "Acesso aos bastidores"], url: "" },
-    { name: "Herói", price: 30, featured: true, perks: ["Tudo do Apoiador", "Nome de uma criatura ou NPC no jogo", "Acesso antecipado às builds"], url: "" },
-    { name: "Lenda", price: 100, perks: ["Tudo do Herói", "Seu retrato em uma estátua da Cidade", "Voto nos próximos mapas"], url: "" },
+    { group: "play", name: "Jogo", price: 19.9, perks: ["Jogo base completo em 2D", "15 mapas, os 3 deuses e as classes base", "Atualizações do jogo base"], url: "" },
+    { group: "play", name: "Completo", price: 24.9, featured: true, perks: ["Tudo do pacote Jogo", "Modo 3D (DLC)", "Assassino e Assassino Elite (Pacote do Kael)", "Mais barato que comprar separado"], url: "" },
+    { group: "play", name: "Apoiador", price: 49.9, perks: ["Tudo do pacote Completo", "Seu nome no mural de créditos", "Voto nas enquetes dos próximos mapas", "Acesso antecipado às builds"], url: "" },
+    { group: "create", name: "NPC", price: 1000, slots: 5, taken: 0, perks: ["Tudo do pacote Apoiador", "Um NPC seu na história: nome, aparência e papel", "Você escolhe o mundo onde ele vive", "Seu nome nos créditos como cocriador"], url: "" },
+    { group: "create", name: "Mapa", price: 2000, slots: 3, taken: 0, featured: true, perks: ["Tudo do pacote NPC", "Seu nome em um mapa do jogo", "Uma criatura sua entre os inimigos", "Sua criatura entra no Bestiário do jogo"], url: "" },
+    { group: "create", name: "DLC", price: 5000, slots: 1, taken: 0, perks: ["Tudo do pacote Mapa", "Uma DLC inteira com a sua classe e a versão Elite dela", "História nova, talentos e cartas próprios", "Seu nome no jogo: em um mapa ou como escolha do chefe final"], url: "" },
   ],
   socials: [
   ],
@@ -327,7 +330,7 @@ if (CONFIG.video) {
   }
 }
 
-const money = (value) => `${CONFIG.currency} ${value.toLocaleString("pt-BR")}`;
+const money = (value) => `${CONFIG.currency} ${value.toLocaleString("pt-BR", { minimumFractionDigits: value % 1 ? 2 : 0 })}`;
 if (CONFIG.goal > 0) {
   $("#goalBox").hidden = false;
   $("#goalRaised").textContent = `Arrecadado: ${money(CONFIG.raised)}`;
@@ -337,14 +340,17 @@ if (CONFIG.goal > 0) {
     $("#goalFill").style.width = Math.min(100, (CONFIG.raised / CONFIG.goal) * 100) + "%";
   });
 }
-const tiers = $("#tiers");
 for (const tier of CONFIG.tiers) {
+  const box = $(tier.group === "create" ? "#tiersCreate" : "#tiersPlay");
+  const left = tier.slots ? tier.slots - (tier.taken || 0) : 0;
+  const full = tier.slots && left <= 0;
   const card = document.createElement("div");
-  card.className = "tier" + (tier.featured ? " featured" : "");
+  card.className = "tier" + (tier.featured ? " featured" : "") + (tier.slots ? " limited" : "") + (full ? " full" : "");
   card.innerHTML = `<h3>${tier.name}</h3><div class="price">${money(tier.price)}</div>
+    ${tier.slots ? `<div class="slots">${full ? "Esgotado" : `${left} de ${tier.slots} ${tier.slots === 1 ? "vaga" : "vagas"}`}</div>` : ""}
     <ul>${tier.perks.map((p) => `<li>${p}</li>`).join("")}</ul>
-    <a class="btn" href="${tier.url || CONFIG.supportUrl}" target="_blank" rel="noopener">Apoiar</a>`;
-  tiers.appendChild(card);
+    ${full ? "" : `<a class="btn" href="${tier.url || CONFIG.supportUrl}" target="_blank" rel="noopener">${tier.slots ? "Quero este pacote" : "Apoiar"}</a>`}`;
+  box.appendChild(card);
 }
 $("#socials").innerHTML = CONFIG.socials
   .map((s) => `<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join("");
