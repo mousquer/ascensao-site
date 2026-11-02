@@ -16,9 +16,10 @@
   <a class="brand" href="#inicio">ASCENSÃO<span> DA SOMBRA</span></a>
   <nav>
     <a href="#classes">Classes</a>
+    <a href="#bestiario">Bestiário</a>
+    <a href="#historia">Deuses</a>
     <a href="#jogo">O Jogo</a>
     <a href="#modos">2D e 3D</a>
-    <a href="#historia">História</a>
     <a href="#apoie">Apoie</a>
   </nav>
   <a class="btn btn-small" href="#apoie">Apoiar o projeto</a>
@@ -42,7 +43,18 @@
     <img src="img/sombra.png" alt="A Sombra">
   </div>
   </div>
+  <div class="parade" id="parade" aria-hidden="true"></div>
   <div class="hero-scroll">Role para descobrir</div>
+</section>
+
+<section class="numbers" aria-label="O jogo em números">
+  <div class="wrap numbers-grid">
+    <div class="num"><b>15</b><span>mapas de caça</span></div>
+    <div class="num"><b>90</b><span>criaturas animadas</span></div>
+    <div class="num"><b>13</b><span>classes</span></div>
+    <div class="num"><b>3</b><span>deuses para enfrentar</span></div>
+    <div class="num"><b>2D + 3D</b><span>no mesmo jogo</span></div>
+  </div>
 </section>
 
 <section class="section classes" id="classes">
@@ -73,6 +85,15 @@
 
       <div class="skills" id="skillList"></div>
     </div>
+  </div>
+</section>
+
+<section class="section bestiary" id="bestiario">
+  <div class="wrap">
+    <h2 class="title">Quem mora no Abismo</h2>
+    <p class="lead">Cada mapa tem a sua gente: seis criaturas próprias, todas animadas. Aqui vai uma amostra das 90 que você enfrenta, do Vampire Place até a Escadaria Final.</p>
+    <div class="beast-grid" id="beastGrid"></div>
+    <p class="fine">Passe o mouse (ou toque) numa criatura para ler quem ela é.</p>
   </div>
 </section>
 
@@ -131,8 +152,8 @@
     <p class="lead">Ondas de criaturas, chefes que já foram heróis e uma história em que os vilões moram nos Céus. Cada descida é diferente, e cada criatura derrotada deixa uma pergunta.</p>
     <div class="cards">
       <article class="card">
-        <h3>Sobreviva a 30 ondas</h3>
-        <p>Cartas de nível, talentos permanentes, equipamentos e chefes nas ondas 10, 20 e 30. Quanto mais fundo, mais forte a horda.</p>
+        <h3>15 mapas, 4 cidades</h3>
+        <p>Do Vampire Place à Escadaria Final, cada mapa tem criaturas, piso e armadilhas próprios. Cartas de nível, talentos permanentes, equipamentos e chefes pelo caminho.</p>
       </article>
       <article class="card">
         <h3>13 classes</h3>
@@ -153,10 +174,12 @@
 
 <section class="section dark" id="historia">
   <div class="wrap">
-    <h2 class="title">A história dos três deuses</h2>
-    <p class="lead">Pul, Mani e Ador mandaram um herói limpar o Abismo. A Sombra sussurra o que eles não contam.</p>
+    <h2 class="title">Os três deuses</h2>
+    <p class="lead">Pul, Mani e Ador mandaram um herói limpar o Abismo. Cada um espera sozinho na sua sala. A Sombra sussurra o que eles não contam.</p>
     <div class="story" id="story">
-      <div class="story-art" id="storyArt"></div>
+      <div class="story-art" id="storyArt">
+        <img class="story-sprite" id="storySprite" alt="" hidden>
+      </div>
       <div class="story-text">
         <h3 id="storyName"></h3>
         <p class="story-sub" id="storySub"></p>
@@ -202,7 +225,7 @@
     <div class="foot-brand">ASCENSÃO<span> DA SOMBRA</span></div>
     <div class="socials" id="socials"></div>
     <p>Em desenvolvimento. Todos os direitos reservados ao desenvolvedor.</p>
-    <p class="credits">Arte de personagens: elie automata.</p>
+    <p class="credits">Arte das classes: elie automata. Criaturas, deuses, NPCs e o novo Guerreiro: arte própria feita com PixelLab.</p>
   </div>
 </footer>
 

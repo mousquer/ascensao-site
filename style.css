@@ -247,3 +247,64 @@ a { color: inherit; text-decoration: none; }
   .modes { grid-template-columns: 1fr; }
   .mode-switch { flex-direction: row; justify-content: center; }
 }
+
+.sprite, .beast-stage img, .story-sprite, .walker img { image-rendering: pixelated; }
+.beast, .card, .tier, .skill, .hero-card {
+  background: linear-gradient(#1a1530, #120e24);
+  border: 2px solid #2d2350;
+  box-shadow: 0 0 0 2px #07050d, 0 10px 30px #00000066, inset 0 0 0 1px #4a3a7a33;
+}
+.numbers { background: linear-gradient(#0a0612, #0e0a1a); border-block: 1px solid var(--line); }
+.numbers-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; padding: 26px 20px; text-align: center; }
+.num b { display: block; font-family: "Cinzel", serif; font-size: clamp(26px, 4vw, 42px); color: var(--gold); letter-spacing: .06em; text-shadow: 0 0 18px #e9c46a55; }
+.num span { color: var(--muted); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+
+.parade { position: absolute; left: 0; right: 0; bottom: 0; height: 230px; overflow: hidden; pointer-events: none; z-index: 1; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.walker { position: absolute; left: 0; animation-duration: 36s; animation-timing-function: linear; animation-iteration-count: infinite; will-change: transform; }
+.walker img { display: block; width: auto; opacity: .92; filter: drop-shadow(0 6px 6px #000a); }
+.walker img.mirror { transform: scaleX(-1); }
+.walker.lane-low { bottom: 6px; z-index: 2; }
+.walker.lane-low img { height: 100px; }
+.walker.lane-high { bottom: 124px; z-index: 1; }
+.walker.lane-high img { height: 84px; filter: drop-shadow(0 6px 6px #000a) brightness(.8); }
+.go-right { animation-name: march-right; }
+.go-left { animation-name: march-left; }
+@keyframes march-right { from { transform: translateX(-24vw); } to { transform: translateX(104vw); } }
+@keyframes march-left { from { transform: translateX(104vw); } to { transform: translateX(-24vw); } }
+.hero { padding-bottom: 60px; }
+.hero-grid { padding-bottom: 210px; }
+.hero-scroll { z-index: 2; }
+
+.beast-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 36px; }
+.beast { padding: 14px 14px 18px; text-align: center; transition: transform .18s, border-color .18s, box-shadow .18s; outline: none; }
+.beast:hover, .beast:focus-visible { transform: translateY(-5px); border-color: var(--gold-dark); box-shadow: 0 0 0 2px #07050d, 0 16px 34px #00000088, 0 0 26px #8f5cff44; }
+.beast-stage { height: 190px; display: grid; place-items: end center; background: radial-gradient(ellipse at 50% 88%, #3b2a6a88, #0a0714 72%); border: 1px solid #07050d; border-radius: 4px; padding-bottom: 14px; margin-bottom: 12px; }
+.beast-stage img { max-height: 160px; max-width: 90%; width: auto; height: auto; filter: drop-shadow(0 8px 6px #000b); }
+.beast h3 { margin: 0; color: var(--gold); font-size: 17px; letter-spacing: .04em; }
+.beast-map { margin: 2px 0 0; color: #7fb2ff; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.beast-text { margin: 8px 0 0; color: var(--muted); font-size: 13px; line-height: 1.45; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .25s, opacity .25s; }
+.beast:hover .beast-text, .beast:focus-visible .beast-text, .beast:focus-within .beast-text { max-height: 90px; opacity: 1; }
+@media (hover: none) { .beast-text { max-height: none; opacity: 1; } }
+
+.story-sprite { position: absolute; left: 50%; bottom: 36px; transform: translateX(-50%); height: 74%; width: auto; max-width: 70%; z-index: 1; filter: drop-shadow(0 10px 10px #000c); }
+
+@media (max-width: 900px) {
+  .numbers-grid { grid-template-columns: repeat(3, 1fr); }
+  .beast-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .parade { height: 160px; }
+  .walker.lane-low img { height: 64px; }
+  .walker.lane-high { bottom: 84px; }
+  .walker.lane-high img { height: 54px; }
+  .hero-grid { padding-bottom: 150px; }
+}
+@media (max-width: 480px) {
+  .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+  .beast-stage { height: 150px; }
+  .beast-stage img { max-height: 120px; }
+}
+@media (prefers-reduced-motion: reduce) { .walker { animation: none; left: 10%; } }
+
+.hero-scroll { display: none; }
+
+.story-sprite.emblem { height: 56%; image-rendering: auto; filter: drop-shadow(0 0 28px #8f5cffaa); }
+.story-sprite[hidden] { display: none; }

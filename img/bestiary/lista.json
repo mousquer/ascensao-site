@@ -1,0 +1,130 @@
+[
+ {
+  "id": "abismonobre",
+  "name": "Nobre Vampiro",
+  "map": "Vampire Place",
+  "text": "Veste a capa que lhe sobrou da corte. Ainda se acha nobre.",
+  "img": "img/bestiary/abismonobre.webp",
+  "face": "front"
+ },
+ {
+  "id": "abismobruxa",
+  "name": "Bruxa de Sangue",
+  "map": "Vampire Place",
+  "text": "Lança esferas de sangue de longe. Nunca chega perto.",
+  "img": "img/bestiary/abismobruxa.webp",
+  "face": "front"
+ },
+ {
+  "id": "fronteiracapitao",
+  "name": "Capitão Sentinela",
+  "map": "A Fronteira",
+  "text": "Guarda a muralha dos Céus. Não pergunta nada, só bate.",
+  "img": "img/bestiary/fronteiracapitao.webp",
+  "face": "right"
+ },
+ {
+  "id": "florestadriade",
+  "name": "Dríade Sombria",
+  "map": "Floresta dos Sussurros",
+  "text": "As árvores lembram nomes. Ela lembra o seu.",
+  "img": "img/bestiary/florestadriade.webp",
+  "face": "front"
+ },
+ {
+  "id": "costapolvo",
+  "name": "Polvo Abissal",
+  "map": "Costa Afogada",
+  "text": "Nasceu das lágrimas que a deusa não deixou cair.",
+  "img": "img/bestiary/costapolvo.webp",
+  "face": "front"
+ },
+ {
+  "id": "cinzasgolem",
+  "name": "Golem de Cinzas",
+  "map": "Cinzas de Ador",
+  "text": "Pedra e brasa a serviço do deus mais jovem.",
+  "img": "img/bestiary/cinzasgolem.webp",
+  "face": "front"
+ },
+ {
+  "id": "minacarrinho",
+  "name": "Carrinho Devorador",
+  "map": "Mina Sem Eco",
+  "text": "Um vagão de minério que aprendeu a ter fome.",
+  "img": "img/bestiary/minacarrinho.webp",
+  "face": "front"
+ },
+ {
+  "id": "pantanosapo",
+  "name": "Sapo de Sal",
+  "map": "Pântano de Sal",
+  "text": "Gordo de sal e de fé. Salta mais do que parece.",
+  "img": "img/bestiary/pantanosapo.webp",
+  "face": "left"
+ },
+ {
+  "id": "selofreira",
+  "name": "Freira Pálida",
+  "map": "O Selo de Mani",
+  "text": "Humana e imortal. Nunca a mate: ela só lembra.",
+  "img": "img/bestiary/selofreira.webp",
+  "face": "front"
+ },
+ {
+  "id": "forjabigorna",
+  "name": "Bigorna Viva",
+  "map": "Forja Rubra",
+  "text": "A forja martelava tanto que a bigorna acordou.",
+  "img": "img/bestiary/forjabigorna.webp",
+  "face": "front"
+ },
+ {
+  "id": "camposespantalho",
+  "name": "Espantalho Assombrado",
+  "map": "Campos de Almas",
+  "text": "Vigia a plantação de almas do Juiz.",
+  "img": "img/bestiary/camposespantalho.webp",
+  "face": "front"
+ },
+ {
+  "id": "tribunalmartelo",
+  "name": "Martelo Vivo",
+  "map": "Praça do Tribunal",
+  "text": "A sentença chega antes de você terminar de falar.",
+  "img": "img/bestiary/tribunalmartelo.webp",
+  "face": "front"
+ },
+ {
+  "id": "tribunalbalanca",
+  "name": "Balança Falsa",
+  "map": "Praça do Tribunal",
+  "text": "Pesa o que quer. Sempre pesa contra você.",
+  "img": "img/bestiary/tribunalbalanca.webp",
+  "face": "front"
+ },
+ {
+  "id": "corvosharpia",
+  "name": "Harpia",
+  "map": "Desfiladeiro dos Corvos",
+  "text": "Caça quem se acha escondido nos corvos.",
+  "img": "img/bestiary/corvosharpia.webp",
+  "face": "front"
+ },
+ {
+  "id": "ossuariopadre",
+  "name": "Padre de Ossos",
+  "map": "Ossuário de Sententia",
+  "text": "Reza pelos condenados. Nunca pelos vivos.",
+  "img": "img/bestiary/ossuariopadre.webp",
+  "face": "front"
+ },
+ {
+  "id": "escadariaanjo",
+  "name": "Anjo de Mármore",
+  "map": "Escadaria Final",
+  "text": "Os Céus tinham anjos. Agora têm estátuas.",
+  "img": "img/bestiary/escadariaanjo.webp",
+  "face": "front"
+ }
+]

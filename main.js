@@ -16,11 +16,11 @@ const CONFIG = {
 };
 
 const CLASSES = [
-  { id: "warrior", group: "base", name: "Guerreiro", role: "Corpo a corpo  •  Tanque", frames: 13, glow: "#e0583a66",
+  { id: "warrior", group: "base", name: "Guerreiro", role: "Corpo a corpo  •  Tanque", frames: 9, glow: "#e0583a66",
     intro: "Sentinela da muralha dos Céus. Muita vida e golpes em área curta. Nunca perguntou o que a Fronteira guardava.",
     skills: [
       { key: "E", name: "Impacto Sísmico", icon: "knight_warrior_s0", text: "Onda de choque em volta dele que fere e empurra tudo que está perto." },
-      { key: "R", name: "Fúria Divina", icon: "knight_warrior_s7", text: "Ultimate que limpa o mapa. Nos chefes, tira só uma fração da vida." },
+      { key: "R", name: "Fúria Divina", icon: "knight_warrior_s7", text: "Ultimate que atinge todas as criaturas do mapa e arranca 75% da vida de cada uma. Nos chefes, tira só uma fração." },
       { key: "Passiva", name: "Giro de Lâminas", icon: "knight_warrior_s3", text: "De tempos em tempos, quatro cortes em cruz em volta do guerreiro." },
     ] },
   { id: "archer", group: "base", name: "Arqueiro", role: "À distância  •  Dano", frames: 12, glow: "#59c65a66",
@@ -111,13 +111,13 @@ const CLASSES = [
 ];
 
 const STORY = [
-  { name: "Pul, o Juiz", sub: "Deus da ordem", art: "img/gods/pul.jpg",
+  { name: "Pul, o Juiz", sub: "Deus da ordem", glow: "#3f8cff", still: "img/gods/pul.webp",
     text: "Severo e frio, fala em sentenças. Acredita que a ordem exige o sacrifício dos outros. Foi o primeiro a banir um mortal ao Abismo e levantou a Fronteira com o nome de cada banido gravado por dentro das pedras." },
-  { name: "Mani, a Misericordiosa", sub: "Deusa da compaixão", art: "img/gods/mani.jpg",
+  { name: "Mani, a Misericordiosa", sub: "Deusa da compaixão", glow: "#5a5cff", still: "img/gods/mani.webp",
     text: "Doce na voz, fria nos atos. Chama o extermínio de \"prece atendida\". Chora sobre a muralha e nunca abre o portão. O mar da Costa Afogada é feito das lágrimas que ela não deixou cair em público." },
-  { name: "Ador, o Fervoroso", sub: "Deus da fé", art: "img/gods/ador.jpg",
+  { name: "Ador, o Fervoroso", sub: "Deus da fé", glow: "#e7a63a", still: "img/gods/ador.webp",
     text: "O mais jovem e o mais fanático. Dá a ordem final: \"Limpe os monstros, até o último\". Promete recompensas e esconde que o herói não volta purificado, volta esquecido." },
-  { name: "A Sombra", sub: "Sua aliada oculta", art: "",
+  { name: "A Sombra", sub: "Sua aliada oculta", glow: "#8f5cff", still: "img/sombra.png",
     text: "Nasceu no Abismo: é a soma do que foi arrancado dos banidos. Ela não quer vingança cega. Quer que você enxergue antes de derrubar o último. A cada onda, diz um pouco mais." },
 ];
 
@@ -270,10 +270,50 @@ function showStory(step) {
   $("#storyBody").textContent = item.text;
   $("#storyCount").textContent = `${storyIndex + 1} / ${STORY.length}`;
   const art = $("#storyArt");
-  art.style.backgroundImage = item.art
-    ? `url(${item.art})`
-    : "radial-gradient(circle at 50% 40%, #6a3cc8, #0a0614 70%)";
+  art.style.backgroundImage = `radial-gradient(ellipse at 50% 62%, ${item.glow}66, transparent 62%), radial-gradient(circle at 50% 40%, ${item.glow}22, #0a0614 75%)`;
+  const sprite = $("#storySprite");
+  sprite.hidden = !item.still;
+  sprite.src = item.still || "";
+  sprite.alt = item.name;
+  sprite.classList.toggle("emblem", Boolean(item.still) && item.still.endsWith(".png"));
 }
+
+fetch("img/bestiary/lista.json").then((r) => r.json()).then((list) => {
+  const grid = $("#beastGrid");
+  for (const m of list) {
+    const card = document.createElement("article");
+    card.className = "beast";
+    card.tabIndex = 0;
+    card.innerHTML = `<div class="beast-stage"><img loading="lazy" alt="${m.name}" src="${m.img}"></div>
+      <h3>${m.name}</h3><p class="beast-map">${m.map}</p><p class="beast-text">${m.text}</p>`;
+    grid.appendChild(card);
+  }
+  const parade = $("#parade");
+  const shuffled = [...list].sort(() => Math.random() - 0.5);
+  const goingRight = shuffled.filter((m) => m.face === "right");
+  const goingLeft = shuffled.filter((m) => m.face === "left");
+  const fronts = shuffled.filter((m) => m.face === "front");
+  while (goingRight.length < 4 && fronts.length) goingRight.push(fronts.pop());
+  while (goingLeft.length < 4 && fronts.length) goingLeft.push(fronts.pop());
+  const lanes = [
+    { items: goingRight.slice(0, 4), dir: "right", cls: "lane-low" },
+    { items: goingLeft.slice(0, 4), dir: "left", cls: "lane-high" },
+  ];
+  for (const lane of lanes) {
+    lane.items.forEach((m, i) => {
+      const walker = document.createElement("div");
+      walker.className = `walker ${lane.cls} go-${lane.dir}`;
+      walker.style.animationDelay = `${-i * 9}s`;
+      const img = document.createElement("img");
+      img.src = m.img;
+      img.alt = "";
+      const natural = m.face === "front" ? "front" : m.face;
+      if (natural === "front" && lane.dir === "left") img.classList.add("mirror");
+      walker.appendChild(img);
+      parade.appendChild(walker);
+    });
+  }
+}).catch(() => {});
 $("#storyPrev").addEventListener("click", () => showStory(-1));
 $("#storyNext").addEventListener("click", () => showStory(1));
 showStory(0);
