@@ -117,7 +117,7 @@ const STORY = [
     text: "Doce na voz, fria nos atos. Chama o extermínio de \"prece atendida\". Chora sobre a muralha e nunca abre o portão. O mar da Costa Afogada é feito das lágrimas que ela não deixou cair em público." },
   { name: "Ador, o Fervoroso", sub: "Deus da fé", glow: "#e7a63a", still: "img/gods/ador.webp",
     text: "O mais jovem e o mais fanático. Dá a ordem final: \"Limpe os monstros, até o último\". Promete recompensas e esconde que o herói não volta purificado, volta esquecido." },
-  { name: "A Sombra", sub: "Sua aliada oculta", glow: "#8f5cff", still: "img/sombra.png",
+  { name: "A Sombra", sub: "Sua aliada oculta", glow: "#8f5cff", still: "img/gods/sombra.webp",
     text: "Nasceu no Abismo: é a soma do que foi arrancado dos banidos. Ela não quer vingança cega. Quer que você enxergue antes de derrubar o último. A cada onda, diz um pouco mais." },
 ];
 
@@ -275,7 +275,6 @@ function showStory(step) {
   sprite.hidden = !item.still;
   sprite.src = item.still || "";
   sprite.alt = item.name;
-  sprite.classList.toggle("emblem", Boolean(item.still) && item.still.endsWith(".png"));
 }
 
 fetch("img/bestiary/lista.json").then((r) => r.json()).then((list) => {
